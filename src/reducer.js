@@ -1,20 +1,5 @@
 export const initialState = {
-    basket: [
-        {
-            id: "343343",
-            title: "The Lean Startup: How Constant Innovation Craates Radically Successful Businesses Paperback",
-            price: 12.96,
-            rating: 3,
-            image: "https://i.ibb.co/Kx4GF5T/51-Zymoq7-Un-L-SX325-BO1-204-203-200.jpg"
-        },
-        {
-            id: "343343",
-            title: "The Lean Startup: How Constant Innovation Craates Radically Successful Businesses Paperback",
-            price: 12.96,
-            rating: 3,
-            image: "https://i.ibb.co/Kx4GF5T/51-Zymoq7-Un-L-SX325-BO1-204-203-200.jpg"
-        },
-    ],
+    basket: [],
     user: null,
 };
 
@@ -24,13 +9,18 @@ export const getBasketTotal = (basket) =>
 const reducer = (state, action) => {
     console.log(action);
     switch(action.type) {
-        case 'ADD_TO_BASKET':
+        case "SET_USER":
+            return {
+                ...state,
+                user: action.user,
+            };
+        case "ADD_TO_BASKET":
             // Logic for adding item to basket
             return { 
                 ...state,
                 basket: [...state.basket, action.item]
             };
-        case 'REMOVE_FROM_BASKET':
+        case "REMOVE_FROM_BASKET":
             // Logic for Removing item from basket...
 
             // we cloned the basket
